@@ -1,13 +1,20 @@
 from unittest import TestCase
 
-from logic import isWinner, isBoardFilled
+from logic import  insertLetterToBoard, isWinner, isBoardFilled, \
+    createEmptyBoard, determineComputerMove
 
-class TryTesting(TestCase):
-    def test_always_passes(self):
-        self.assertTrue(True)
+class testInsertLetterToBoard(TestCase):
+    """ IndexError will be handle in playerMove()"""
+    def setUp(self):
+        self.board = createEmptyBoard()
 
-    def test_always_fails(self):
-        self.assertFalse(False)
+    def testInsertLetter1(self):
+        insertLetterToBoard(self.board, 'X', 2)
+        self.assertEqual(self.board[2], 'X')
+
+    def testInsertLetter1(self):
+        insertLetterToBoard(self.board, 'c', 9)
+        self.assertEqual(self.board[9], 'c')
 
 
 class testIsWinner(TestCase):
@@ -17,7 +24,6 @@ class testIsWinner(TestCase):
 
     def testsIsWinner1(self):
         board = [' ', 'X', 'X', 'X', ' ', 'O', 'O', 'X', 'X', ' ']
-        
         self.assertTrue(isWinner(board, self.X), 'Should return True')
 
     def testsIsWinner2(self):
@@ -49,3 +55,32 @@ class testIsBoardFilled(TestCase):
     def testIsBoardFilled3(self):
         board = [' ', 'X', 'O', ' ', 'O', ' ', 'O', 'X', 'X', ' ']
         self.assertFalse(isBoardFilled(board), 'Should return False')
+
+
+class testDetermineComputerMove(TestCase):
+    def testComputerMove1(self):
+        board = [ ' ',
+            ' ', ' ', ' ',
+            ' ', ' ', ' ',
+            ' ', ' ', ' ',
+            ]
+        move = determineComputerMove(board)
+        self.assertEqual(5,move)
+
+    def testComputerMove2(self):
+        board = [ ' ',
+            'X', ' ', ' ',
+            ' ', 'X', ' ',
+            ' ', ' ', ' ',
+            ]
+        move = determineComputerMove(board)
+        self.assertEqual(9,move)
+
+    def testComputerMove3(self):
+        board = [ ' ',
+            'X', ' ', 'O',
+            'X', ' ', 'O',
+            ' ', ' ', ' ',
+            ]
+        move = determineComputerMove(board)
+        self.assertEqual(9,move)
