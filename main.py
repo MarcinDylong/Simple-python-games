@@ -1,7 +1,7 @@
-from logic import playerMove, computerMove, createEmptyBoard, displayBoard,\
+from tic_tac_toe import playerMove, computerMove, createEmptyBoard, displayBoard,\
     isWinner, isBoardFilled
 
-def game():
+def tic_tac_toe():
     ## Game start
     
 
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     print('To win, you have to complete straight line of three \'X\'')
     print('The board has grid numbered from 1-9')
     while True:
-        game()
+        tic_tac_toe()
         again = input('Would like to play again? (y/n)')
 
         if again.lower() == 'n' or again.lower() == 'no':
