@@ -11,10 +11,10 @@ def choose_game():
         if int(choice) >= 0 and int(choice) <= 2:
             return int(choice)
         else:
-            print('Your choice is out of range!')
+            print('\nYour choice is out of range!')
             return None
     except ValueError:
-        print('Invalid input!')
+        print('\nInvalid input!')
         return None
     
 
@@ -61,9 +61,8 @@ def hangman():
 
 if __name__ == '__main__':
 
-    
+    print('WELCOME!!\n')
     while True:
-        print('WELCOME!!')
         print('Choose the game you want to play!')
         choice = choose_game()
 
