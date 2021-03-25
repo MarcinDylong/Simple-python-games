@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from logic import  insertLetterToBoard, isWinner, isBoardFilled, \
+from tic_tac_toe import  insertLetterToBoard, isWinner, isBoardFilled, \
     createEmptyBoard, determineComputerMove
 
 class testInsertLetterToBoard(TestCase):
