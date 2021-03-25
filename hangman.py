@@ -50,7 +50,6 @@ class Progress:
         else:
             return False
 
-
     def displayHangman(self):
         bar = self._progress_bar
         print(' ______')
@@ -61,7 +60,6 @@ class Progress:
         print(' |')
         print(' |')
         print('_|_')
-
 
     def displayWord(self):
         word = self.word
@@ -76,10 +74,8 @@ class Progress:
                 display.append('_') 
         print(' '.join(display))
 
-
     def displayUsedLetters(self):
         print(f'\nLetter already used: {" ".join(self.used_letters)}')
-
 
     def userInput(self):
         while True:
