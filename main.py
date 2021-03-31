@@ -1,14 +1,16 @@
 from tic_tac_toe import playerMove, computerMove, createEmptyBoard, isWinner,\
     displayBoard, isBoardFilled
 from hangman import Progress
+from sudoku import random_board, print_board, user_input, find_first_empty
 
 def choose_game():
     print('[1] - Tic tac toe')
     print('[2] - Hangman')
+    print('[3] - Sudoku')
     print('[0] - Exit')
     choice = input('Write your choice!  ')
     try:
-        if int(choice) >= 0 and int(choice) <= 2:
+        if int(choice) >= 0 and int(choice) <= 3:
             return int(choice)
         else:
             print('\nYour choice is out of range!')
@@ -58,6 +60,18 @@ def hangman():
             break
 
 
+def sudoku():
+    ## Game start
+    board = random_board()
+    while True:
+        print_board(board)
+        user_input(board)
+        if find_first_empty(board) == None:
+            print('Sudoku solve! Bravo!')
+            break
+
+
+
 
 if __name__ == '__main__':
 
@@ -91,6 +105,17 @@ if __name__ == '__main__':
 
                 if again.lower() == 'n' or again.lower() == 'no':
                     print('########\nYou are leaving hangman!\n########')
+                    break
+        elif choice == 3:
+            ## Play sudoku
+            print('Welcome to sudoku!')
+            print('Try to solve entire sudoku!')
+            while True:
+                sudoku()
+                again = input('Would like to play again? (y/n)')
+
+                if again.lower() == 'n' or again.lower() == 'no':
+                    print('########\nYou are leaving sudoku!\n########')
                     break 
         else:
             continue
