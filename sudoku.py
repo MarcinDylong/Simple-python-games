@@ -12,11 +12,13 @@ ex_board = [
 
 
 def print_board(board):
+    print('   | 1 2 3    4 5 6    7 8 9')
+    print('---|-----------------------')
     for i in range(len(board)):
         ## Separate squares horizontally
         if i % 3 == 0 and i != 0:
-            print('- - - - - - - - - - - -')
-        
+            print('   | - - - - - - - - - - - -')
+        print(f' {i+1} | ', end="")
         for j in range(len(board[0])):
             ## Separate squares vertically
             if j % 3 == 0 and j != 0:
@@ -93,6 +95,6 @@ def solve_board(board):
 
 if __name__ == '__main__':
     print_board(ex_board)
-    print('---------------')
-    solve_board(ex_board)
-    print_board(ex_board)
+    # print('---------------')
+    # solve_board(ex_board)
+    # print_board(ex_board)
