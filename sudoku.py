@@ -1,11 +1,12 @@
+import copy
+
 from boards import sudoku_boards
-from random import randint
+from random import choice
+
 
 
 def random_board():
-    n = len(sudoku_boards) - 1
-    board = sudoku_boards[randint(0,n)]
-    return board
+    return choice(sudoku_boards)
 
 
 def print_board(board):
@@ -117,12 +118,15 @@ def user_input(board):
         if check_user_input(number):
             break
     r, c, number = int(r)-1, int(c)-1, int(number)
+    return r,c,number
+
+def insert_num(board, r, c, number):
+    temp = copy.deepcopy(board)
     ## Check if cell is empty
-    if is_empty(board, (r,c)):
-        temp_board = board.copy()
-        temp_board[r][c] = number
+    if is_empty(temp, (r,c)):
+        temp[r][c] = number
         ## Try to solve sudoku with given number in cell
-        if solve_board(temp_board):
+        if solve_board(temp):
             board[r][c] = number
             print(f'\n{number} is correct!\n')
             return True
@@ -132,6 +136,7 @@ def user_input(board):
     else:
         print(f'\nRow {r+1}, column {c+1} is already occupied!\n')
         return False
+    
 
 
 if __name__ == '__main__':

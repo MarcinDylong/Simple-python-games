@@ -1,7 +1,9 @@
 from tic_tac_toe import playerMove, computerMove, createEmptyBoard, isWinner,\
     displayBoard, isBoardFilled
 from hangman import Progress
-from sudoku import random_board, print_board, user_input, find_first_empty
+from sudoku import random_board, print_board, user_input, find_first_empty,\
+    insert_num
+
 
 def choose_game():
     print('[1] - Tic tac toe')
@@ -65,12 +67,12 @@ def sudoku():
     board = random_board()
     while True:
         print_board(board)
-        user_input(board)
-        if find_first_empty(board) == None:
+        row, col, num = user_input(board)
+        insert_num(board, row, col, num)
+        # print_board(board)
+        if not find_first_empty(board):
             print('Sudoku solve! Bravo!')
             break
-
-
 
 
 if __name__ == '__main__':

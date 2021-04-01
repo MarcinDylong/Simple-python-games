@@ -73,7 +73,7 @@ class TestDisplayWord(TestCase):
         self.progress.word_letters = ['B', 'C', 'A']
         self.assertEqual(
             self.progress.is_over(),
-            False
+            True
         )
 
     def testIsOver4(self):
