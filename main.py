@@ -1,7 +1,7 @@
-from tic_tac_toe import playerMove, computerMove, createEmptyBoard, isWinner,\
+from games.tic_tac_toe import playerMove, computerMove, createEmptyBoard, isWinner,\
     displayBoard, isBoardFilled
-from hangman import Progress
-from sudoku import random_board, print_board, user_input, find_first_empty,\
+from games.hangman import Progress
+from games.sudoku import random_board, print_board, user_input, find_first_empty,\
     insert_num
 
 
@@ -71,7 +71,9 @@ def sudoku():
         insert_num(board, row, col, num)
         # print_board(board)
         if not find_first_empty(board):
+            print('####################')
             print('Sudoku solve! Bravo!')
+            print('####################\n')
             break
 
 

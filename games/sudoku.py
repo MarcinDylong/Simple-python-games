@@ -1,8 +1,7 @@
 import copy
-
-from boards import sudoku_boards
 from random import choice
 
+from games.boards import sudoku_boards
 
 
 def random_board():
@@ -106,15 +105,15 @@ def check_user_input(inp):
 
 def user_input(board):
     while True:
-        r = input('Insert row number from 1-9: ')
+        r = input('Insert row, choose digit from 1-9: ')
         if check_user_input(r):
             break
     while True:
-        c = input('Insert column number from 1-9: ')
+        c = input('Insert column, choose digit from 1-9: ')
         if check_user_input(c):
             break
     while True:
-        number = input('Insert column number from 1-9: ')
+        number = input('Insert number,  choose digit from 1-9: ')
         if check_user_input(number):
             break
     r, c, number = int(r)-1, int(c)-1, int(number)
